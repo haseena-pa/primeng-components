@@ -1,1 +1,27 @@
-<p-button label="Submit"></p-button>
+<p-table
+  [value]="products"
+  [columns]="cols"
+  [reorderableColumns]="true"
+  (onColReorder)="columnReorder($event)"
+  (onRowReorder)="rowReorder($event)"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" pReorderableColumn>
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template
+    pTemplate="body"
+    let-rowData
+    let-columns="columns"
+    let-index="rowIndex"
+  >
+    <tr [pReorderableRow]="index">
+      <td *ngFor="let col of columns" pReorderableRowHandle>
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
