@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'basic-primeng-angular-16';
+  title = 'primeng-angular-16';
 }
