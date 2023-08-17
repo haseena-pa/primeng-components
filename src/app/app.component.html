@@ -1,1 +1,13 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  styleClass="w-30rem"
+  (onShow)="onShowSidebar($event)"
+  (onHide)="onHideSidebar($event)"
+  (visibleChange)="sidebarChange($event)"
+>
+  <ng-template pTemplate="header">Header Content</ng-template>
+  <ng-template pTemplate="content">Body Content</ng-template>
+  <ng-template pTemplate="footer">Footer Content</ng-template>
+</p-sidebar>
 
+<p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button>

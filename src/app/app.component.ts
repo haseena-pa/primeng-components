@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'primeng-angular-16';
+  sidebarVisible = false;
+
+  onShowSidebar($event: any) {
+    console.log($event)
+  }
+
+  onHideSidebar($event: any) {
+    console.log('hide', $event)
+  }
+
+  sidebarChange($event: any) {
+    console.log('visiblechange', $event)
+  }
 }
