@@ -1,1 +1,8 @@
-
+<p-chart
+  type="bar"
+  [data]="basicData"
+  [options]="basicOptions"
+  (onDataSelect)="selectData($event)"
+  height="80vh"
+  width="40vw"
+></p-chart>
