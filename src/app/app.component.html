@@ -1,1 +1,12 @@
-
+<div class="card flex justify-content-center">
+  <p-dropdown
+    [options]="products"
+    [(ngModel)]="selectedProduct"
+    optionLabel="title"
+    placeholder="Select Product"
+    [virtualScroll]="true"
+    [virtualScrollItemSize]="7"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  ></p-dropdown>
+</div>
