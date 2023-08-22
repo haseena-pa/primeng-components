@@ -1,1 +1,8 @@
-
+<div [formGroup]="myGroup">
+  <p-inputSwitch
+    formControlName="switchChecked"
+    trueValue="yes"
+    falseValue="no"
+    (onChange)="handleEvent($event)"
+  ></p-inputSwitch>
+</div>
