@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
+import { Product, ProductsResponse } from './product';
+import { TableLazyLoadEvent } from 'primeng/table';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'primeng-angular-16';
+  products: Product[] = [];
+  totalRecords: number = 0;
+  loading: boolean = true;
+
+  constructor(private appService: AppService) { }
+
+  // event type will be LazyLoadEvent in primeng14
+  loadProducts($event: TableLazyLoadEvent) {
+    this.loading = true;
+    this.appService.getProducts($event.first || 0).subscribe(
+      (response: ProductsResponse) => {
+        this.loading = false;
+        this.products = response.products;
+        this.totalRecords = response.total;
+      }
+    )
+  }
 }

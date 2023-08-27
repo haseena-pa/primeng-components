@@ -1,1 +1,24 @@
-
+<p-table
+  [value]="products"
+  [paginator]="true"
+  [rows]="10"
+  [lazy]="true"
+  (onLazyLoad)="loadProducts($event)"
+  [totalRecords]="totalRecords"
+  [loading]="loading"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>id</th>
+      <th>Product Name</th>
+      <th>Price</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pdt>
+    <tr>
+      <td>{{ pdt.id }}</td>
+      <td>{{ pdt.title }}</td>
+      <td>{{ pdt.price }}</td>
+    </tr>
+  </ng-template>
+</p-table>
