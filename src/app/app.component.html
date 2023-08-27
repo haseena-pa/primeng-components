@@ -1,1 +1,16 @@
-
+<div class="p-fluid" [formGroup]="myGroup">
+  <p-chips
+    formControlName="values"
+    placeholder="Add tags"
+    [max]="3"
+    separator=","
+    [showClear]="true"
+    (onAdd)="onAddChip($event)"
+    (onChipClick)="onChipClick($event)"
+    (onRemove)="onRemoveChip($event)"
+  >
+    <ng-template let-item pTemplate="item">
+      {{ item }} - (active)
+    </ng-template></p-chips
+  >
+</div>
