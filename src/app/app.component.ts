@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'primeng-angular-16';
+  title = 'primeng-autocomplete';
+
+  productList = [];
+  selectedProduct: any;
+
+  constructor(private appService: AppService) {
+
+  }
+
+  search($event: any) {
+    this.appService.getProducts($event.query).subscribe(
+      response => this.productList = response.products
+    )
+  }
+
+  selectID(value: any) {
+    console.log(value);
+  }
 }

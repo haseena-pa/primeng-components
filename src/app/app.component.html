@@ -1,1 +1,27 @@
+<p-autoComplete
+  [(ngModel)]="selectedProduct"
+  [suggestions]="productList"
+  (completeMethod)="search($event)"
+  field="title"
+  (onSelect)="selectID($event)"
+  [forceSelection]="true"
+  [multiple]="true"
+>
+  <ng-template let-product pTemplate="item">
+    <img
+      src="{{ product.thumbnail }}"
+      style="width: 32px; display: inline-block; margin: 5px 0 2px 5px"
+    />
+    <div style="font-size: 18px; float: right; margin: 10px 10px 0 0">
+      {{ product.title }}
+    </div>
+  </ng-template>
 
+  <ng-template let-product pTemplate="selectedItem">
+    <span style="font-size: 18px">>{{ product.id }} {{ product.title }}</span>
+  </ng-template>
+</p-autoComplete>
+
+<br />
+
+{{ selectedProduct | json }}
