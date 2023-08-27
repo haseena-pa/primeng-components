@@ -1,1 +1,21 @@
+<h2>Floating Label</h2>
+<label for="firstName" class="block">First Name</label>
+<div class="p-input-icon-right">
+  <i class="pi pi-search"></i>
+  <input
+    type="text"
+    pInputText
+    [(ngModel)]="firstName"
+    id="firstName"
+    class="p-inputtext-lg"
+    placeholder="First Name"
+    #fname="ngModel"
+    required
+    (keyup)="someFn()"
+  />
+  <small class="block p-error" *ngIf="fname.invalid && fname.dirty"
+    >First name is required</small
+  >
+</div>
 
+<span class="block">{{ firstName }}</span>
