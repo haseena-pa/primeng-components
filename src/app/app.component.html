@@ -1,1 +1,15 @@
-
+<p-treeSelect
+  class="md:w-20rem w-full"
+  containerStyleClass="w-full"
+  placeholder="Select item"
+  [(ngModel)]="selectedOption"
+  [options]="treeOptions"
+  selectionMode="checkbox"
+  [metaKeySelection]="false"
+  [propagateSelectionDown]="false"
+  [propagateSelectionUp]="false"
+  display="chip"
+  [filter]="true"
+  [filterInputAutoFocus]="true"
+  [showClear]="true"
+></p-treeSelect>
