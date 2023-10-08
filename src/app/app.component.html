@@ -1,1 +1,13 @@
-
+<p-fileUpload
+  chooseLabel="Choose"
+  name="demo[]"
+  url="https://www.primefaces.org/cdn/api/upload.php"
+  accept="image/*"
+  [maxFileSize]="1000000"
+  (onUpload)="onUpload($event)"
+  [multiple]="true"
+>
+  <ng-template let-file pTemplate="file">
+    <div>{{ file.name }} {{ file.size }}</div>
+  </ng-template>
+</p-fileUpload>
